@@ -29,6 +29,7 @@ struct HobbyRowView: View {
                 
             }
         }
+        //design change for rectangle color of each hobby row
         .scrollContentBackground(.hidden)
         .background(Rectangle()
             .fill(Color.gray.opacity(0.1))

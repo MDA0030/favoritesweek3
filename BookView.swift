@@ -16,9 +16,10 @@ struct BookView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(favorites.filteredBooks(searchText: searchText)) {
-                    book in BookRowView(book: book)
-                    
+                
+                /* similar ForEach to ForEach used in HobbiesView    */
+                
+                ForEach(favorites.filteredBooks(searchText: searchText)) { book in BookRowView(book: book)
                 }
                 
             }

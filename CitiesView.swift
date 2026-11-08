@@ -25,6 +25,7 @@ struct CitiesView: View {
                 }
                 
             }
+            //design change to add small green color at bottom of city image
             .scrollContentBackground(.hidden)
             .background(Rectangle()
                 .fill(Color.green.opacity(0.1))

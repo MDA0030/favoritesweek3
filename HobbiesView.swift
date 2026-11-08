@@ -20,6 +20,7 @@ struct HobbiesView: View {
                 }
                 
             }
+            //design change for pale yellow background color for HobbiesView
             .scrollContentBackground(.hidden)
             .background(Rectangle()
                 .fill(Color.yellow.opacity(0.1))

@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+//FavoritesView
 struct FavoritesView: View {
     @EnvironmentObject private var favorites: FavoritesViewModel
     
@@ -33,6 +34,12 @@ struct FavoritesView: View {
                     Section("Cities") {
                         ForEach(favorites.cities.filter { $0.isFavorite}) {
                             city in CityCardView(city: city)
+                            //image adjustments for this view - img was overfilling
+                                .frame(maxWidth: .infinity)
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(EdgeInsets())
+                                .clipped()
+                                
                         }
                     }
                     
@@ -46,6 +53,8 @@ struct FavoritesView: View {
                 }
                 
             }
+            .listStyle(.plain)
+            //design change for pale blue background color
             .scrollContentBackground(.hidden)
             .background(Rectangle()
                 .fill(Color.blue.opacity(0.1))

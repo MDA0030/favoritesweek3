@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-//import Combine
 
 //notifies swiftui when update
 
@@ -29,6 +28,8 @@ class FavoritesViewModel: ObservableObject {
         books = bookManager.initializeFavorites(items: sampleBooks)
     }
     
+    
+    // ordered 3 filtered functions together
     func filteredCities(searchText: String) -> [CityModel] {
         cityManager.filteredItems(items: cities, searchText: searchText)
         
@@ -38,11 +39,14 @@ class FavoritesViewModel: ObservableObject {
         hobbyManager.filteredItems(items: hobbies, searchText: searchText)
     }
     
+    
     //function to filter books similar to filteredCities/Hobbies
     func filteredBooks(searchText: String) -> [BookModel] {
         bookManager.filteredItems(items: books, searchText: searchText)
     }
     
+    
+    // ordered 3 toggle functions together
     func toggleFavoriteCity(city: CityModel) {
         cityManager.toggleFavorite(items: &cities, targetItem: city)
     }
@@ -50,6 +54,7 @@ class FavoritesViewModel: ObservableObject {
     func toggleFavoriteHobby(hobby: HobbyModel) {
         hobbyManager.toggleFavorite(items: &hobbies, targetItem: hobby)
     }
+    
     
     //function to toggle favorite book, similar to toggleFavoriteCity/Hobby
     func toggleFavoriteBook(book: BookModel) {
@@ -59,6 +64,7 @@ class FavoritesViewModel: ObservableObject {
     
 
     
+    //function to clear all favorites listed for the 3 Views
     func clearAllFavorites() {
         cityManager.clearFavorites(items: &cities)
         hobbyManager.clearFavorites(items: &hobbies)

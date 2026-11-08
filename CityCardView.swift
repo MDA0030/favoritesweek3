@@ -14,17 +14,20 @@ struct CityCardView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
+           
             Image(city.cityImage)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: .infinity)
-                .frame(height: 140)
-                .overlay {
-                    Image (city.cityName)
-                        .resizable()
-                        .scaledToFit()
-                }
-                .clipped()
+               .frame(maxWidth: .infinity)
+               .frame(height: 140)
+               .clipped()
+            //debugging image too big in FavoritesView
+             //   .overlay {
+             //       Image (city.cityName)
+              //          .resizable()
+              //          .scaledToFit()
+             //   }
+             //   .clipped()
             
             HStack {
                 Text(city.cityName)
@@ -48,6 +51,7 @@ struct CityCardView: View {
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 10)
+            //design change to make bottom of city image blue
             .scrollContentBackground(.hidden)
             .background(Rectangle()
                 .fill(Color.blue.opacity(0.1))
