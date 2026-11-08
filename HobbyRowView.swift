@@ -29,7 +29,10 @@ struct HobbyRowView: View {
                 
             }
         }
-        
+        .scrollContentBackground(.hidden)
+        .background(Rectangle()
+            .fill(Color.gray.opacity(0.1))
+            )
         .padding(.vertical, 4)
         
     }

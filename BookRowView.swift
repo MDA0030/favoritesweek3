@@ -11,7 +11,7 @@ struct BookRowView: View {
     
     let book: BookModel
     @EnvironmentObject private var favorites: FavoritesViewModel
-    
+    @State private var isSelected: Bool = false
     
     
     var body: some View {
@@ -23,7 +23,16 @@ struct BookRowView: View {
                 Text(book.bookAuthor)
                     .font(.caption)
                     .foregroundStyle(.primary)
-                
+            }
+            .padding(8)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(isSelected ? Color.blue.opacity(0.25) : Color.clear))
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    isSelected.toggle()
+                }
                 
             }
             
@@ -37,9 +46,11 @@ struct BookRowView: View {
             }
         }
         .padding(.vertical, 8)
-        
-        
-        
+        .padding(.horizontal, 2)
+        .background(RoundedRectangle(cornerRadius: 1)
+            .fill(Color.pink.opacity(0.1))
+            )
+         
     }
 }
 

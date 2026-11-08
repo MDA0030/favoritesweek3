@@ -17,7 +17,13 @@ struct CityCardView: View {
             Image(city.cityImage)
                 .resizable()
                 .scaledToFill()
+                .frame(maxWidth: .infinity)
                 .frame(height: 140)
+                .overlay {
+                    Image (city.cityName)
+                        .resizable()
+                        .scaledToFit()
+                }
                 .clipped()
             
             HStack {
@@ -42,7 +48,10 @@ struct CityCardView: View {
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 10)
-        }
+            .scrollContentBackground(.hidden)
+            .background(Rectangle()
+                .fill(Color.blue.opacity(0.1))
+                )        }
         .shadow(radius: 3)
         
     }

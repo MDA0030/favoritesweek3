@@ -7,8 +7,53 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @EnvironmentObject private var favorites: FavoritesViewModel
+    
+    
     var body: some View {
-        Text("Favorites")
+        NavigationStack {
+            List {
+                if favorites.books.contains(where: { $0.isFavorite}) {
+                    Section("Books") {
+                        ForEach(favorites.books.filter { $0.isFavorite}) {
+                            book in BookRowView(book: book)
+                        }
+                    }
+                    
+                }
+                if favorites.hobbies.contains(where: { $0.isFavorite}) {
+                    Section("Hobbies") {
+                        ForEach(favorites.hobbies.filter { $0.isFavorite}) {
+                             HobbyRowView(hobby: $0)
+                        }
+                    }
+                    
+                }
+                if favorites.cities.contains(where: { $0.isFavorite}) {
+                    Section("Cities") {
+                        ForEach(favorites.cities.filter { $0.isFavorite}) {
+                            city in CityCardView(city: city)
+                        }
+                    }
+                    
+                }
+            }
+            .overlay {
+                if !favorites.books.contains(where: { $0.isFavorite}) &&
+                    !favorites.hobbies.contains(where: { $0.isFavorite}) &&
+                    !favorites.cities.contains(where: { $0.isFavorite}) {
+                    ContentUnavailableView("No favorites", systemImage: "heart")
+                }
+                
+            }
+            .scrollContentBackground(.hidden)
+            .background(Rectangle()
+                .fill(Color.blue.opacity(0.1))
+                )
+            .navigationTitle("Favorites")
+        }
+
+        
     }
 }
 

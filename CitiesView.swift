@@ -25,6 +25,10 @@ struct CitiesView: View {
                 }
                 
             }
+            .scrollContentBackground(.hidden)
+            .background(Rectangle()
+                .fill(Color.green.opacity(0.1))
+                )
             .padding()
         }
         

@@ -20,7 +20,10 @@ struct HobbiesView: View {
                 }
                 
             }
-            .padding()
+            .scrollContentBackground(.hidden)
+            .background(Rectangle()
+                .fill(Color.yellow.opacity(0.1))
+                )            .padding()
         }
         
         
