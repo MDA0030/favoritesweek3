@@ -37,7 +37,7 @@ struct FavoritesView: View {
                             //image adjustments for this view - img was overfilling
                                 .frame(maxWidth: .infinity)
                                 .listRowSeparator(.hidden)
-                                .listRowInsets(EdgeInsets())
+                                .listRowInsets(EdgeInsets(top: 12, leading: 2, bottom: 12, trailing: 2))
                                 .clipped()
                                 
                         }
