@@ -2,3 +2,4 @@
 # Xcode user-specific settings
 **/xcuserdata/
 **/.git.backup/
+.DS_Store
