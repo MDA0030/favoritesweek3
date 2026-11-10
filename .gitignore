@@ -1,0 +1,4 @@
+
+# Xcode user-specific settings
+**/xcuserdata/
+**/.git.backup/
